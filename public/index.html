@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <title>SoundFit</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> 
+    <script src="index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="index.css">
+    
+  </head>
+  <body>
+      <div id="navbar-home">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+              
+              <a class="navbar-brand" href="index.html">SoundFit</a>
+            
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="index.html"><span class="glyphicon glyphicon-home"></span>Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span> Profile</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            </div>
+        
+  
+      <div class="container">
+      <div id="login">
+          <div class="page-header">
+              <h1 id="typography">Welcome to SoundFit!</h1>
+            </div>
+            <p class="text-muted">To use SoundFit you must have a registered Fitbit and Spotify account! Login to Spotify to continue...</p>
+        <div class="spotify-login-btn">
+        <a href="/login" class="btn btn-outline-success" id="spotify-login-btn">Login with Spotify</a>
+
+      </div>
+      </div>
+      <!-- End of login page --> 
+      <div id="loggedin">
+        <div id="user-profile">
+        </div>
+        <div id="oauth">
+        </div>
+        <a href="http://localhost:5001/authorize" class="btn btn-outline-info" id="fitbit-login-btn">Login to Fitbit!</a>
+      </div>
+      
+    </div> 
+
+    <script id="user-profile-template" type="text/x-handlebars-template">
+      <div class="page-header">
+          <h1 id="typography">Welcome to SoundFit, {{display_name}}!</h1>
+        </div>
+      <div class="media">
+        <div class="pull-left">
+          <img class="media-object" width="150" src="{{images.0.url}}" />
+        </div>
+        <div class="media-body">
+          <dl class="dl-horizontal">
+            <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
+            <dt>Email</dt><dd>{{email}}</dd>
+            <dt>Country</dt><dd>{{country}}</dd>
+          </dl>
+        </div>
+      </div>
+    </script> 
+
+     <script id="oauth-template" type="text/x-handlebars-template">
+      <h2>oAuth info</h2>
+      <dl class="dl-horizontal">
+        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+        <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}</dd>
+      </dl>
+    </script>
+  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>  
+  </body>
+</html>
+

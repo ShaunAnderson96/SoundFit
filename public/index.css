@@ -1,0 +1,38 @@
+#login, #loggedin {
+    display: none;
+  }
+  .text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 500px;
+  }
+
+  .spotify-login-btn{
+      margin-left:25%;
+  }
+
+.text-muted{
+    font-size:2em;
+  }
+.page-header{
+    margin-top:0%;
+} 
+  .navbar-brand{
+    font-size: 3em;
+    padding-top:3%;
+  } 
+  .container{
+      padding-left: 5%;
+      padding-top:1px;
+  }
+
+  #fitbit-login-btn{
+    margin-top: 5%;
+    font-size: 1em;
+    margin-left: 30%;
+  }
+
+  #spotify-login-btn{
+    font-size: 1em;
+  }
