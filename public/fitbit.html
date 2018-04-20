@@ -1,1 +1,119 @@
-<h1>Hello</h1>
+<!doctype html>
+<html>
+  <head>
+    <title>SoundFit</title>
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#000000">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="fitbit.css">
+    <script src="fitbit.js"></script>
+    
+      <!-- <script>
+      //targets the list items on dropdown
+      //once clicked with collapse the toggle box
+      $(document).ready(function () {
+      $("li").click(function(event) {
+        $("#navDisplay").collapse('hide');
+        });
+      }); 
+    </script>  -->
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> -->
+        <nav class="navbar navbar-dark bg-primary">     
+        <a class="navbar-brand" href="index.html">SoundFit</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html"><span class="glyphicon glyphicon-home"></span>Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html"><span class="glyphicon glyphicon-user"></span> Profile</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+            
+            <!-- <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Brand</a>
+                    </div>
+                    
+                    
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="">Page 1</a>
+                            </li>
+                            <li><a href="">Page 2</a>
+                            </li>
+                            <li><a href="">Page 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> -->
+          
+            
+            <div class="interface-component interface-component-body">
+              <h1 id="typography">Heart Rate</h1>
+              <div class="interface-module">
+
+                <div class="interface-module-element">
+                <span style="font-size: 20px; margin-right: 20px;"><span class="value-heart">?</span> bpm</span>
+                <span id ="hearticon">
+                  <svg version="1.1" class="icon-heart" x="0px" y="0px" width="18px" height="18px"
+                  viewBox="0 0 19.126 17.252">
+                   <path fill="none" stroke="#ff2a2a" stroke-miterlimit="10" d="M18.494,4.801c-0.516-2.597-2.361-4.27-4.739-4.27
+                   c-1.33,0-2.769,0.548-4.176,1.579C8.155,1.048,6.716,0.5,5.371,0.5c-2.378,0-4.24,1.689-4.74,4.317
+                  c-0.751,3.895,1.658,9.072,8.712,11.888c0.079,0.031,0.157,0.047,0.235,0.047c0.078,0,0.156-0.016,0.234-0.047
+                  C16.852,13.827,19.245,8.665,18.494,4.801L18.494,4.801z M9.579,15.422"/>  
+               </svg>
+              </span>
+               
+              </div>
+              
+              </div>
+               
+            </div>
+            <div class="music">
+                <iframe src="https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:37i9dQZF1DWXTcPFeNCMUP" width="250" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div> 
+                <br>
+      <div class="container">
+      <h1 id="typography">Welcome to the Fitbit</h1>
+      <p class="text-muted">To continue using Soundfit, please log into your Fitbit account below!</p>
+      <p class="text-muted">Please ensure to have synced your Fitbit to your phone before continuing!</p>
+       <a href="http://localhost:5001/authorize" class="btn btn-outline-info" id="fitbit-login-btn">Get Fitbit Data!</a>
+      </div>
+    
+     
+  </body>
+</html>
+

@@ -12,8 +12,8 @@ var request = require('request'); // "Request" library
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = '375a7f5716874a4caa621990c14ffd13'; // Your client id
-var client_secret = 'd0e8eb20d34046029e2db148246cfdf4'; // Your secret
+var client_id = '23e431d3924543c3b3417b4ecc27cbcb'; // Your client id
+var client_secret = 'c06c88d08e6c443099346b62586714ce'; // Your secret
 var redirect_uri = 'http://localhost:5000/callback'; // Your redirect uri
 
 /**
@@ -156,6 +156,7 @@ app.listen(5000);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //FITBIT CODE
+
 const express = require("express");
 const fitapp = express();
 
@@ -179,15 +180,19 @@ fitapp.get("/callback", (req, res) => {
 	client.getAccessToken(req.query.code, 'http://localhost:5001/callback').then(result => {
     // use the access token to fetch the user's profile information
       // client.get("/activities/heart/date/today/1d.json", result.access_token).then(results => {
-      client.get("/activities/heart/date/today/1d.json", result.access_token).then(results => {
-			res.send(results[0]);
+      client.get("/activities/heart/date/today/1d/1min.json", result.access_token).then(results => {
+      res.send(results[0]);
+      
+      
 		}).catch(err => {
 			res.status(err.status).send(err);
-		});
+    });
+    
 	}).catch(err => {
 		res.status(err.status).send(err);
 	});
 });
+
 
 // launch the server
 fitapp.listen(5001);
