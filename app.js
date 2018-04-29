@@ -1,10 +1,8 @@
 /**
- * This is an example of a basic node.js script that performs
- * the Authorization Code oAuth2 flow to authenticate against
- * the Spotify Accounts.
- *
- * For more information, read
- * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
+ * DISCLAIMER - USING SPOTIFY API AND FITBIT API TO RETRIEVE DATA
+ * NOT FOR COMMERICAL USE
+ * NO PROFIT ACHIEVED
+ * NO COPYRIGHT INTENDED
  */
 
 var spotexpress = require('express'); // Express web server framework
@@ -12,9 +10,9 @@ var request = require('request'); // "Request" library
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = '23e431d3924543c3b3417b4ecc27cbcb'; // Your client id
-var client_secret = 'c06c88d08e6c443099346b62586714ce'; // Your secret
-var redirect_uri = 'http://localhost:5000/callback'; // Your redirect uri
+var client_id = '23e431d3924543c3b3417b4ecc27cbcb'; // Spotify Client ID
+var client_secret = 'c06c88d08e6c443099346b62586714ce'; // Spotify Client Secret
+var redirect_uri = 'http://localhost:5000/callback'; // Redirect URI
 
 /**
  * Generates a random string containing numbers and letters
@@ -43,7 +41,6 @@ app.get('/login', function(req, res) {
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
-  // your application requests authorization
   var scope = 'user-read-private user-read-email';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
@@ -57,9 +54,6 @@ app.get('/login', function(req, res) {
 
 
 app.get('/callback', function(req, res) {
-
-  // your application requests refresh and access tokens
-  // after checking the state parameter
 
   var code = req.query.code || null;
   var state = req.query.state || null;
@@ -96,6 +90,10 @@ app.get('/callback', function(req, res) {
           headers: { 'Authorization': 'Bearer ' + access_token },
           json: true
         };
+         // use the access token to access the Spotify Web API
+         request.get(options, function(error, response, body) {
+          
+        });
 
         var songs = {
           url: 'https://api.spotify.com/v1/tracks?ids=7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B',
@@ -103,12 +101,8 @@ app.get('/callback', function(req, res) {
           json: true
         }
 
-        // use the access token to access the Spotify Web API
-        request.get(options, function(error, response, body) {
-          console.log(body);
-        });
         request.get(songs, function(error, response, body) {
-          console.log(body);
+          
         });
 
         // we can also pass the token to the browser to make requests from there
@@ -160,26 +154,25 @@ app.listen(5000);
 const express = require("express");
 const fitapp = express();
 
-// initialize the Fitbit API client
+// initialize the Fitbit API 
 const FitbitApiClient = require("fitbit-node");
 const client = new FitbitApiClient({
 	clientId: "22CVC2",
 	clientSecret: "273cb9d910ad74ad4367714e6b8ea859",
-	apiVersion: '1.2' // 1.2 is the default
+	apiVersion: '1.2' 
 });
 
 // redirect the user to the Fitbit authorization page
 fitapp.get("/authorize", (req, res) => {
-	// request access to the user's activity, heartrate, location, nutrion, profile, settings, sleep, social, and weight scopes
-	res.redirect(client.getAuthorizeUrl('activity heartrate location nutrition profile settings sleep social weight', 'http://localhost:5001/callback'));
+	// request access to the user's heartrate and redirect to port 5001
+	res.redirect(client.getAuthorizeUrl('heartrate', 'http://localhost:5001/callback'));
 });
 
-// handle the callback from the Fitbit authorization flow
+// handle the callback from the Fitbit 
 fitapp.get("/callback", (req, res) => {
-	// exchange the authorization code we just received for an access token
+	// exchange the authorization code received for an access token
 	client.getAccessToken(req.query.code, 'http://localhost:5001/callback').then(result => {
-    // use the access token to fetch the user's profile information
-      // client.get("/activities/heart/date/today/1d.json", result.access_token).then(results => {
+    // use the access token to get the user's profile information
       client.get("/activities/heart/date/today/1d/1min.json", result.access_token).then(results => {
       res.send(results[0]);
       
