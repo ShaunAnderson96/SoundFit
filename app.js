@@ -10,9 +10,9 @@ var request = require('request'); // "Request" library
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = '23e431d3924543c3b3417b4ecc27cbcb'; // Spotify Client ID
-var client_secret = 'c06c88d08e6c443099346b62586714ce'; // Spotify Client Secret
-var redirect_uri = 'http://localhost:5000/callback'; // Redirect URI
+var client_id = 'client_id'; // Spotify Client ID
+var client_secret = 'client_secret'; // Spotify Client Secret
+var redirect_uri = 'your_callback'; // Redirect URI
 
 /**
  * Generates a random string containing numbers and letters
@@ -157,8 +157,8 @@ const fitapp = express();
 // initialize the Fitbit API 
 const FitbitApiClient = require("fitbit-node");
 const client = new FitbitApiClient({
-	clientId: "22CVC2",
-	clientSecret: "273cb9d910ad74ad4367714e6b8ea859",
+	clientId: "client_id",
+	clientSecret: "client_secret",
 	apiVersion: '1.2' 
 });
 
